@@ -1,23 +1,22 @@
 import {Text, Image as ChakraImage, Box, Flex} from "@chakra-ui/react";
 import Image from "next/image";
 
-import {useCurrentUser} from "../store/User";
-import buyBlue from "../public/icons/buy-blue.svg";
-import buyWhite from "../public/icons/buy-white.svg";
-import coin from "../public/icons/coin.svg";
+import {useGetData} from "../../store/Data";
 
-import type {Product} from "types";
+import buyBlue from "@public/icons/buy-blue.svg";
+import buyWhite from "@public/icons/buy-white.svg";
+import coin from "@public/icons/coin.svg";
+import type {Product as ProductType} from "types";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 
 type props = {
-  pro: Product;
-  key: string;
+  pro: ProductType;
 };
 
 export default function Product({pro}: props) {
   const {category, cost, img, name, _id: id} = pro;
-  const {data: userData, setData} = useCurrentUser();
+  const {user, setUser} = useGetData();
 
   const handleRedeem = () => {
     fetch("https://coding-challenge-api.aerolab.co/redeem", {
@@ -35,7 +34,7 @@ export default function Product({pro}: props) {
           },
         })
           .then((res) => res.json())
-          .then((data) => setData(data));
+          .then((data) => setUser(data));
       })
       .catch((err) => console.log(err));
   };
@@ -52,7 +51,7 @@ export default function Product({pro}: props) {
       width="275px"
     >
       <Box position="absolute" right="10px">
-        {userData && userData.points > cost ? (
+        {user && user.points > cost ? (
           <Image alt="shop icon" height={30} src={buyBlue} width={30} />
         ) : (
           <Flex
@@ -63,7 +62,7 @@ export default function Product({pro}: props) {
             pl={5}
           >
             <Text color="#ffffff" fontSize="0.8rem">
-              You need {cost - userData?.points}
+              You need {cost - user?.points}
             </Text>
             <Flex alignItems="center" pt={5}>
               <Image alt="coin icon" height={30} src={coin} width={30} />

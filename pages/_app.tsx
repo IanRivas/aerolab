@@ -1,20 +1,14 @@
-import "../styles/globals.css";
+import "@public/styles/globals.css";
 import type {AppProps} from "next/app";
+import {ThemeProvider} from "styled-components";
 
-import ProductProvider from "../store/Products";
-import UserProvider from "../store/User";
-
-import Layout from "@components/layout/main";
+import {theme} from "@public/styles/theme";
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
-    <ProductProvider>
-      <UserProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </UserProvider>
-    </ProductProvider>
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 }
 
