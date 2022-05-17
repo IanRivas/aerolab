@@ -1,10 +1,9 @@
-import {theme} from "@chakra-ui/react";
 import styled from "styled-components";
 
 export const Wrapper = styled.div<{visible: boolean}>`
   width: 312px;
   margin: 0;
-  display: block;
+  display: ${(props) => (props.visible ? "block" : "none")};
   position: absolute;
   right: 0;
   top: calc(80% + 0.8rem);
@@ -18,6 +17,7 @@ export const Wrapper = styled.div<{visible: boolean}>`
   transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
   & > h3 {
     padding: 16px 24px;
+    border-bottom: 1px solid ${({theme}) => theme.neutral300};
   }
   & > :nth-child(2) {
     padding: 24px;
@@ -60,18 +60,17 @@ export const Wrapper = styled.div<{visible: boolean}>`
       display: flex;
       gap: 4px;
       & button {
-        background-color: #e6f0ff;
         height: 35px;
         flex-grow: 1;
         border-radius: 12px;
         border: none;
         font-size: 1.1rem;
-        background: ${({theme}) => theme.brandBg};
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #176feb;
+        background-color: #e6f0ff;
+        cursor: pointer;
       }
       & .select {
+        background: ${({theme}) => theme.brandBg};
         -webkit-text-fill-color: ${({theme}) => theme.neutral100};
         -webkit-background-clip: initial;
         background-clip: initial;
@@ -90,6 +89,7 @@ export const Wrapper = styled.div<{visible: boolean}>`
       font-size: 1.1rem;
       font-weight: 600;
       color: ${({theme}) => theme.white};
+      cursor: pointer;
     }
   }
 `;

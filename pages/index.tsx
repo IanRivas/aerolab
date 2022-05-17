@@ -1,3 +1,4 @@
+import {useRef} from "react";
 import {InferGetServerSidePropsType} from "next";
 import Head from "next/head";
 
@@ -9,6 +10,8 @@ import type {User, Product} from "../types";
 const token = process.env.NEXT_PUBLIC_TOKEN;
 
 const Home = ({user, products}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const refProducts = useRef<HTMLUListElement>(null);
+
   return (
     <>
       <Head>
@@ -18,8 +21,8 @@ const Home = ({user, products}: InferGetServerSidePropsType<typeof getServerSide
       </Head>
 
       <Data user={user}>
-        <Header />
-        <main>
+        <Header refProducts={refProducts} />
+        <main ref={refProducts}>
           <ProductContainer products={products} />
         </main>
       </Data>

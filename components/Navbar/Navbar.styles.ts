@@ -10,5 +10,6 @@ export const Wrapper = styled.nav`
   padding: 10px 25px;
   background-color: #ffffff;
   top: 0;
+  left: 0;
   z-index: 2;
 `;

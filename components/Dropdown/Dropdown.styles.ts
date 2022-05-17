@@ -7,6 +7,7 @@ export const DropdownWrapper = styled.div`
   align-items: center;
   width: 156px;
   height: 48px;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   & > button {
     display: flex;
     justify-content: center;
