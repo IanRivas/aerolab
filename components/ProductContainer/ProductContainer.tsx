@@ -1,13 +1,15 @@
 import {Text} from "@chakra-ui/react";
 import {useState, useEffect} from "react";
 
-import {Wrapper, Button} from "./ProductContainer.styles";
+import {Wrapper, Button, H2} from "./ProductContainer.styles";
 
-import Product from "components/Product";
+import Filter from "@components/Filter";
+import Product, {CardSkeleton} from "components/Product";
 import ProductNav from "components/ProductNav";
 import type {Product as ProductType} from "types";
 
 type sorts = "recent" | "lowestPrice" | "highestPrice";
+type filters = "All Products" | "Gaming" | "Audio" | "Smart Home" | "Monitors & TV";
 
 type props = {
   products: ProductType[];
@@ -21,6 +23,7 @@ export default function ProductContainer({products}: props) {
   const [productsState, setProductState] = useState<ProductType[]>([...products]);
   const [page, setPage] = useState<number>(1);
   const [sort, setSort] = useState<sorts>("recent");
+  const [filter, setFilter] = useState<filters>("All Products");
 
   useEffect(() => {
     if (sort === "highestPrice") {
@@ -34,6 +37,10 @@ export default function ProductContainer({products}: props) {
 
   return (
     <>
+      <H2>
+        <span>TECH</span> PRODUCTS
+      </H2>
+      <Filter filter={filter} setFilter={setFilter} />
       <ProductNav countProducts={products && products.length} page={page} setPage={setPage}>
         <>
           <Text borderLeft="1px solid #d9d9d9" color="#a3a3a3" fontSize="1.2rem" pl={24}>
@@ -56,15 +63,25 @@ export default function ProductContainer({products}: props) {
           </Button>
         </>
       </ProductNav>
-      {products && (
+      {products ? (
         <Wrapper>
-          {page === 1
+          {filter !== "All Products"
+            ? productsState
+                .filter((value: ProductType) => value.category === filter)
+                .map((value: ProductType) => <Product key={value._id} pro={value} />)
+            : page === 1
             ? productsState
                 .slice(0, 16)
                 .map((value: ProductType) => <Product key={value._id} pro={value} />)
             : productsState
                 .slice(16)
                 .map((value: ProductType) => <Product key={value._id} pro={value} />)}
+        </Wrapper>
+      ) : (
+        <Wrapper>
+          {[0, 0, 0, 0, 0, 0, 0, 0, 0].map((v, index) => (
+            <CardSkeleton key={index} />
+          ))}
         </Wrapper>
       )}
       <ProductNav countProducts={products && products.length} page={page} setPage={setPage} />

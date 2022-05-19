@@ -1,9 +1,9 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import Image from "next/image";
 
 import {useGetData} from "../../store/Data";
 
-import {Wrapper} from "./Product.styles";
+import {Wrapper, WrapperSkeleton} from "./Product.styles";
 
 import RedeemBtn from "@components/RedeemBtn";
 import type {Product as ProductType} from "types";
@@ -14,15 +14,13 @@ type props = {
   pro: ProductType;
 };
 
-type stateReddem = "default" | "processing" | "disabled";
-
 export default function Product({pro}: props) {
-  const [redeem, setRedeem] = useState<stateReddem>("default");
+  const [processing, setProcessing] = useState(false);
   const {category, cost, img, name, _id: id} = pro;
   const {user, setUser} = useGetData();
 
   const handleRedeem = () => {
-    setRedeem("processing");
+    setProcessing(true);
     fetch("https://coding-challenge-api.aerolab.co/redeem", {
       method: "POST",
       headers: {
@@ -40,6 +38,7 @@ export default function Product({pro}: props) {
           .then((res) => res.json())
           .then((data) => setUser(data));
       })
+      .then(() => setProcessing(false))
       .catch((err) => console.log(err));
   };
 
@@ -48,7 +47,13 @@ export default function Product({pro}: props) {
       <div className="card">
         <div>
           <div className="imageContainer">
-            <Image alt="product image" layout="fill" src={img.hdUrl} />
+            <Image
+              alt="product image"
+              blurDataURL="/icons/aerolabPlaceholder.svg"
+              layout="fill"
+              placeholder="blur"
+              src={img.hdUrl}
+            />
           </div>
         </div>
         <div className="nameContainer">
@@ -56,7 +61,31 @@ export default function Product({pro}: props) {
           <p>{category}</p>
         </div>
       </div>
-      <RedeemBtn cost={cost} type={redeem} onClick={handleRedeem} />
+      <RedeemBtn
+        cost={cost}
+        processing={processing}
+        userPoints={user && user.points}
+        onClick={handleRedeem}
+      />
     </Wrapper>
+  );
+}
+
+export function CardSkeleton() {
+  return (
+    <WrapperSkeleton>
+      <div className="card">
+        <div>
+          <div className="imageContainer">
+            <Image alt="placeholder image" layout="fill" src="/icons/aerolabPlaceholder.svg" />
+          </div>
+        </div>
+        <div className="nameContainer">
+          <div />
+          <div />
+        </div>
+      </div>
+      <div className="skBtn" />
+    </WrapperSkeleton>
   );
 }

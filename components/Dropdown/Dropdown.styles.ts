@@ -9,6 +9,7 @@ export const DropdownWrapper = styled.div`
   height: 48px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   & > button {
+    width: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +19,7 @@ export const DropdownWrapper = styled.div`
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: blue;
-    width: 170px;
+    cursor: pointer;
     text-align: left;
     padding: 8px 16px;
     border: 1px solid blue;

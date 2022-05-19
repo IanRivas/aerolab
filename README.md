@@ -1,10 +1,10 @@
 # Todo 
-- productNav responsive 
-- hero responsive
 
-<Image
-    src={url}
-    alt="image"
-    layout="fill"
-    placeholder="/static/placeholder.jpg"
-    objectFit="contain"
+- Page Component
+- Toast
+- Footer
+- Responsive aerolab
+- Metadata
+- Vercel deploy
+- Post on Linkedin
+

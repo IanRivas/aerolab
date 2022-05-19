@@ -5,6 +5,9 @@ const nextConfig = {
     domains: ["coding-challenge-api.aerolab.co"],
     formats: ["image/webp"],
   },
+  experimental: {
+    styledComponents: true,
+  },
 };
 
 module.exports = nextConfig;

@@ -50,6 +50,7 @@ export const Wrapper = styled.div`
       align-items: center;
       justify-content: center;
       gap: 10px;
+      cursor: pointer;
       & span {
         color: ${({theme}) => theme.white};
         font-weight: 600;

@@ -1,1 +1,1 @@
-export {default} from "./Product";
+export {default, CardSkeleton} from "./Product";

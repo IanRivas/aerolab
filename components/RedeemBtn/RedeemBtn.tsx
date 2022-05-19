@@ -3,29 +3,35 @@ import Image from "next/image";
 
 import {Wrapper, WrapperProcessing, WrapperDisabled} from "./RedeemBtn.styles";
 
-import logoWhite from "@public/icons/aerolabLogoWhite.svg";
+import logoGray from "@public/icons/redeemGray.svg";
+import logoWhite from "@public/icons/redeemWhite.svg";
 
 type props = {
-  type: string;
   cost: number;
+  processing: boolean;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+  userPoints: number;
 };
 
-export default function RedeemBtn({onClick, type, cost}: props) {
-  if (type === "disabled") {
+export default function RedeemBtn({processing, cost, onClick, userPoints}: props) {
+  if (processing) {
     return (
-      <WrapperDisabled>
-        <span>hola</span>
-      </WrapperDisabled>
+      <WrapperProcessing>
+        <span>Processing...</span>
+      </WrapperProcessing>
     );
   }
 
   return (
     <>
-      {type === "processing" ? (
-        <WrapperProcessing>
-          <span>Processing...</span>
-        </WrapperProcessing>
+      {userPoints < cost ? (
+        <WrapperDisabled>
+          <span>
+            You need
+            <Image alt="aerolab logo" src={logoGray} />
+            {cost}
+          </span>
+        </WrapperDisabled>
       ) : (
         <Wrapper onClick={onClick}>
           <span>

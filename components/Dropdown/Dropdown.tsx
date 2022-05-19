@@ -10,7 +10,7 @@ import blueIcon from "@public/icons/aerolabLogoBlue.svg";
 import arrowDown from "@public/icons/arrowDown.svg";
 
 function Dropdown() {
-  const refPay = useRef<HTMLUListElement>(null);
+  const refPay = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const {user} = useGetData();
 

@@ -35,6 +35,7 @@ export const WrapperProcessing = styled(Wrapper)`
 
 export const WrapperDisabled = styled(Wrapper)`
   background: ${({theme}) => theme.neutral200};
+  cursor: default;
   & > span {
     color: ${({theme}) => theme.neutral600};
   }
