@@ -25,7 +25,7 @@ export const FilterWrapper = styled.div`
     border: 1px solid ${({theme}) => theme.neutral300};
     cursor: pointer;
     overflow: hidden;
-    z-index: 1;
+    z-index: 2;
     & > span {
       font-size: 1rem;
       font-weight: 600;
@@ -43,6 +43,7 @@ export const FilterWrapper = styled.div`
     border-radius: 16px;
     border: 1px solid ${({theme}) => theme.neutral300};
     animation: ${moveDown} 300ms linear;
+    z-index: 1;
     & > button {
       height: 51px;
       padding: 12px 24px;
