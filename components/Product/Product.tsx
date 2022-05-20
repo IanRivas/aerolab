@@ -5,6 +5,7 @@ import {useGetData} from "../../store/Data";
 
 import {Wrapper, WrapperSkeleton} from "./Product.styles";
 
+import Toast, {ToastError} from "@components/Toast";
 import RedeemBtn from "@components/RedeemBtn";
 import type {Product as ProductType} from "types";
 
@@ -18,6 +19,9 @@ export default function Product({pro}: props) {
   const [processing, setProcessing] = useState(false);
   const {category, cost, img, name, _id: id} = pro;
   const {user, setUser} = useGetData();
+
+  const [toast, setToast] = useState<boolean>(false);
+  const [toastError, setToastError] = useState<boolean>(false);
 
   const handleRedeem = () => {
     setProcessing(true);
@@ -38,36 +42,46 @@ export default function Product({pro}: props) {
           .then((res) => res.json())
           .then((data) => setUser(data));
       })
-      .then(() => setProcessing(false))
-      .catch((err) => console.log(err));
+      .then(() => {
+        setProcessing(false);
+        setToast(true);
+      })
+      .catch(() => {
+        setProcessing(false);
+        setToastError(true);
+      });
   };
 
   return (
-    <Wrapper>
-      <div className="card">
-        <div>
-          <div className="imageContainer">
-            <Image
-              alt="product image"
-              blurDataURL="/icons/aerolabPlaceholder.svg"
-              layout="fill"
-              placeholder="blur"
-              src={img.hdUrl}
-            />
+    <>
+      <Wrapper>
+        <div className="card">
+          <div>
+            <div className="imageContainer">
+              <Image
+                alt="product image"
+                blurDataURL="/icons/aerolabPlaceholder.svg"
+                layout="fill"
+                placeholder="blur"
+                src={img.hdUrl}
+              />
+            </div>
+          </div>
+          <div className="nameContainer">
+            <h5>{name}</h5>
+            <p>{category}</p>
           </div>
         </div>
-        <div className="nameContainer">
-          <h5>{name}</h5>
-          <p>{category}</p>
-        </div>
-      </div>
-      <RedeemBtn
-        cost={cost}
-        processing={processing}
-        userPoints={user && user.points}
-        onClick={handleRedeem}
-      />
-    </Wrapper>
+        <RedeemBtn
+          cost={cost}
+          processing={processing}
+          userPoints={user && user.points}
+          onClick={handleRedeem}
+        />
+      </Wrapper>
+      <Toast productName={pro.name} setVisible={setToast} visible={toast} />
+      <ToastError setVisible={setToastError} visible={toastError} />
+    </>
   );
 }
 

@@ -1,6 +1,5 @@
 # Todo 
 
-- Page Component
 - Toast
 - Footer
 - Responsive aerolab
