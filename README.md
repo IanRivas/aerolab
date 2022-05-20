@@ -1,7 +1,7 @@
 # Todo 
 
-- Toast
 - Footer
+- product nav component
 - Responsive aerolab
 - Metadata
 - Vercel deploy

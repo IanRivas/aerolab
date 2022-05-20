@@ -2,10 +2,12 @@ import {useRef} from "react";
 import {InferGetServerSidePropsType} from "next";
 import Head from "next/head";
 
-import Header from "../components/Header";
-import ProductContainer from "../components/ProductContainer";
 import Data from "../store/Data";
 import type {User, Product} from "../types";
+
+import Header from "@components/Header";
+import ProductContainer from "@components/ProductContainer";
+import Footer from "@components/Footer";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 
@@ -25,6 +27,7 @@ const Home = ({user, products}: InferGetServerSidePropsType<typeof getServerSide
         <main ref={refProducts}>
           <ProductContainer products={products} />
         </main>
+        <Footer />
       </Data>
     </>
   );
