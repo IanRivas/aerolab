@@ -9,15 +9,14 @@ const moveDown = keyframes`
 `;
 
 export const FilterWrapper = styled.div`
-  width: 90%;
-  margin: 0 auto;
+  width: clamp(256px, 50%, 335px);
   position: relative;
   & > button {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    width: 335px;
+    width: 100%;
     height: 56px;
     padding: 16px 8px 16px 24px;
     background-color: ${({theme}) => theme.white};
@@ -33,7 +32,7 @@ export const FilterWrapper = styled.div`
     }
   }
   & .visible {
-    width: 335px;
+    width: 100%;
     display: flex;
     position: absolute;
     flex-direction: column;

@@ -11,5 +11,5 @@ export const Wrapper = styled.nav`
   background-color: #ffffff;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
 `;

@@ -1,13 +1,12 @@
-import {Text} from "@chakra-ui/react";
 import {useState, useEffect} from "react";
+import ProductNav from "components/ProductNav";
 
-import {Wrapper, Button, H2} from "./ProductContainer.styles";
+import {Wrapper, Button, H2, BottomPager, SortFilterContainer} from "./ProductContainer.styles";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 import Filter from "@components/Filter";
 import Pager from "@components/Pager";
 import Product, {CardSkeleton} from "components/Product";
-import ProductNav from "components/ProductNav";
 import type {Product as ProductType} from "types";
 
 type sorts = "recent" | "lowestPrice" | "highestPrice";
@@ -62,30 +61,23 @@ export default function ProductContainer({products}: props) {
       <H2>
         <span>TECH</span> PRODUCTS
       </H2>
-      <Filter filter={filter} setFilter={setFilter} />
-      <Pager finalPage={finalPage} page={page} setPage={setPage} />
-      <ProductNav countProducts={products && products.length} page={page} setPage={setPage}>
-        <>
-          <Text borderLeft="1px solid #d9d9d9" color="#a3a3a3" fontSize="1.2rem" pl={24}>
-            Sorted by:
-          </Text>
-          <Button className={sort === "recent" ? "active" : null} onClick={() => setSort("recent")}>
-            Most Recent
-          </Button>
-          <Button
-            className={sort === "lowestPrice" ? "active" : null}
-            onClick={() => setSort("lowestPrice")}
-          >
-            Lowest Price
-          </Button>
-          <Button
-            className={sort === "highestPrice" ? "active" : null}
-            onClick={() => setSort("highestPrice")}
-          >
-            Highest Price
-          </Button>
-        </>
-      </ProductNav>
+      <SortFilterContainer>
+        <div>
+          <div className="filter">
+            <span>Filter by: </span>
+            <Filter filter={filter} setFilter={setFilter} />
+          </div>
+          <div className="sort">
+            <span>Sorted by:</span>
+            <Buttons setSort={setSort} sort={sort} />
+          </div>
+          <Pager finalPage={finalPage} page={page} setPage={setPage} />
+        </div>
+        <div className="sort2">
+          <Buttons setSort={setSort} sort={sort} />
+        </div>
+      </SortFilterContainer>
+
       {products ? (
         <Wrapper>
           {filter !== "All Products"
@@ -103,7 +95,39 @@ export default function ProductContainer({products}: props) {
           ))}
         </Wrapper>
       )}
-      <ProductNav countProducts={products && products.length} page={page} setPage={setPage} />
+      <BottomPager>
+        <Pager finalPage={finalPage} page={page} setPage={setPage} />
+        <div>
+          <span>{items} of 32</span> products
+        </div>
+      </BottomPager>
+    </>
+  );
+}
+
+type propsButtons = {
+  sort: sorts;
+  setSort: React.Dispatch<React.SetStateAction<sorts>>;
+};
+
+function Buttons({sort, setSort}: propsButtons) {
+  return (
+    <>
+      <Button className={sort === "recent" ? "select" : null} onClick={() => setSort("recent")}>
+        Most Recent
+      </Button>
+      <Button
+        className={sort === "lowestPrice" ? "select" : null}
+        onClick={() => setSort("lowestPrice")}
+      >
+        Lowest Price
+      </Button>
+      <Button
+        className={sort === "highestPrice" ? "select" : null}
+        onClick={() => setSort("highestPrice")}
+      >
+        Highest Price
+      </Button>
     </>
   );
 }

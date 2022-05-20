@@ -1,8 +1,6 @@
 # Todo 
 
-- Footer
-- product nav component
-- Responsive aerolab
+- Header responsive
 - Metadata
 - Vercel deploy
 - Post on Linkedin

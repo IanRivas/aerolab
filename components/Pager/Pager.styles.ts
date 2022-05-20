@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PagerWrapper = styled.div`
-  width: 259px;
+  min-width: 259px;
   height: 64px;
   display: flex;
   justify-content: space-between;
@@ -13,6 +13,12 @@ export const PagerWrapper = styled.div`
     color: ${({theme}) => theme.neutral600};
     font-size: 1.1rem;
     font-weight: 600;
+    & > span {
+      background: ${({theme}) => theme.brandBg};
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
   }
   & > button {
     width: 40px;
