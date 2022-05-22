@@ -20,6 +20,10 @@ const Home = ({user, products}: InferGetServerSidePropsType<typeof getServerSide
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <link href="/aerolab.svg" rel="icon" sizes="any" type="image/svg+xml" />
         <title>Aerolab&apos;s</title>
+        <meta content="A Challenge for Aerolab to redeem products" name="description" />
+        <meta content="Aerolab Challenge" itemProp="name" />
+        <meta content="A Challenge for Aerolab to redeem products" itemProp="description" />
+        <meta content="/images/metadata.png" itemProp="image" />
       </Head>
 
       <Data user={user}>

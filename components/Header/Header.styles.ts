@@ -132,7 +132,8 @@ export const Wrapper = styled.div`
         & > :last-child {
           position: absolute;
           top: -197px;
-          left: -85px;
+          left: 50%;
+          transform: translateX(-50%);
           width: 897px;
           height: 795px;
         }

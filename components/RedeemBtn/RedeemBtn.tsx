@@ -29,7 +29,7 @@ export default function RedeemBtn({processing, cost, onClick, userPoints}: props
           <span>
             You need
             <Image alt="aerolab logo" src={logoGray} />
-            {cost}
+            {cost - userPoints}
           </span>
         </WrapperDisabled>
       ) : (

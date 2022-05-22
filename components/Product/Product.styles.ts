@@ -24,6 +24,9 @@ export const Wrapper = styled.div`
         width: 70%;
         height: 200px;
         position: relative;
+        background-image: url("/icons/aerolabPlaceholder.svg");
+        background-repeat: no-repeat;
+        background-position: center;
       }
     }
     & > :last-child {

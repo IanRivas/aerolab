@@ -29,6 +29,8 @@ export const Wrapper = styled.div<{visible: boolean}>`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      overflow: hidden;
+      position: relative;
       & div {
         display: flex;
         justify-content: space-between;
@@ -39,7 +41,7 @@ export const Wrapper = styled.div<{visible: boolean}>`
           font-size: 1.1rem;
         }
       }
-      & :last-child {
+      & > :nth-child(2) {
         & h4 {
           font-size: 0.9rem;
         }
@@ -48,6 +50,17 @@ export const Wrapper = styled.div<{visible: boolean}>`
           font-size: 0.9rem;
           font-weight: 600;
         }
+      }
+      & > :last-child {
+        position: absolute;
+        transform: rotate(-4.26deg);
+        width: 500px;
+        height: 219px;
+        top: 60px;
+        left: 0;
+        opacity: 0.3;
+        background-image: url("/icons/wave.svg");
+        background-size: auto 10px;
       }
     }
   }

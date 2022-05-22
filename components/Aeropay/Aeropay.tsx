@@ -54,6 +54,7 @@ export default function Aeropay({refPay, visible}: props) {
             <h4>{user && user.name}</h4>
             <span>{user && user.createDate.substring(5, 10).replace("-", "/")}</span>
           </div>
+          <div />
         </div>
       </div>
       <div className="buttons">

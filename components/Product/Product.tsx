@@ -58,13 +58,7 @@ export default function Product({pro}: props) {
         <div className="card">
           <div>
             <div className="imageContainer">
-              <Image
-                alt="product image"
-                blurDataURL="/icons/aerolabPlaceholder.svg"
-                layout="fill"
-                placeholder="blur"
-                src={img.hdUrl}
-              />
+              <Image alt="product image" layout="fill" src={img.hdUrl} />
             </div>
           </div>
           <div className="nameContainer">
