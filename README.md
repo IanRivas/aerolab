@@ -1,6 +1,6 @@
 # Todo 
 
-- Header responsive
+- Header desktop
 - Metadata
 - Vercel deploy
 - Post on Linkedin

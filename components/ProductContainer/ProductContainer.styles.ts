@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   margin: 3rem auto;
   display: grid;
-  width: min(90%, 1227px);
+  width: min(90%, 1464px);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   place-items: center;
   gap: 25px;
@@ -26,7 +26,7 @@ export const Button = styled.button`
 `;
 
 export const SortFilterContainer = styled.div`
-  width: min(90%, 1227px);
+  width: min(90%, 1464px);
   margin: 0 auto;
   & > :first-child {
     display: flex;
@@ -42,7 +42,6 @@ export const SortFilterContainer = styled.div`
     }
     & .sort {
       display: none;
-      margin: 0 auto;
       padding-bottom: 6px;
       flex-wrap: nowrap;
       padding-left: 40px;
@@ -63,7 +62,6 @@ export const SortFilterContainer = styled.div`
   }
   & .sort2 {
     display: flex;
-    width: 90%;
     margin: 0 auto;
     padding-bottom: 6px;
     flex-wrap: nowrap;
@@ -110,10 +108,11 @@ export const SortFilterContainer = styled.div`
 `;
 
 export const H2 = styled.h2`
+  width: min(90%, 1464px);
   font-size: 2rem;
   font-weight: 900;
   line-height: 80%;
-  margin: 80px 21px 40px;
+  margin: 80px auto 40px;
   color: ${({theme}) => theme.neutral900};
   & span {
     background: ${({theme}) => theme.brandBg};
@@ -124,7 +123,7 @@ export const H2 = styled.h2`
 `;
 
 export const BottomPager = styled.div`
-  width: min(90%, 1227px);
+  width: min(90%, 1464px);
   margin: 3rem auto;
   display: flex;
   justify-content: center;

@@ -6,8 +6,10 @@ import Logo from "@components/Logo";
 export default function Navbar() {
   return (
     <Wrapper>
-      <Logo />
-      <Dropdown />
+      <div>
+        <Logo />
+        <Dropdown />
+      </div>
     </Wrapper>
   );
 }

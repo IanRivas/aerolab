@@ -9,7 +9,7 @@ const moveDown = keyframes`
 `;
 
 export const FilterWrapper = styled.div`
-  width: clamp(256px, 50%, 335px);
+  width: 335px;
   position: relative;
   & > button {
     display: flex;

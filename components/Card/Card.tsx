@@ -2,6 +2,7 @@ import Image, {StaticImageData} from "next/image";
 
 import {Wrapper} from "./Card.styles";
 
+import useWindowDimensions from "hooks/useWindowDimensions";
 import cardLogo from "@public/icons/cardLogo.svg";
 
 type props = {
@@ -11,10 +12,17 @@ type props = {
 };
 
 export default function Card({img, text, title}: props) {
+  const {width} = useWindowDimensions();
+
   return (
     <Wrapper>
       <div className="cardImage">
-        <Image alt="card image" height={230} src={img} width={311} />
+        <Image
+          alt="card image"
+          height={width > 1364 ? 498 : 230}
+          src={img}
+          width={width > 1364 ? 508 : 311}
+        />
       </div>
       <div className="cardText">
         <div className="cardTitle">
