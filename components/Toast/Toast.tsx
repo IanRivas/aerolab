@@ -2,10 +2,9 @@ import Image from "next/image";
 
 import {ToastWrapper, ToastErrorWrapper} from "./Toast.styles";
 
-import toastSuccess from "@public/icons/toastSuccess.svg";
-import toastError from "@public/icons/toastError.svg";
-import closeIcon from "@public/icons/closeIcon.svg";
-// import type {Product} from "types/";
+import toastSuccess from "public/icons/toastSuccess.svg";
+import toastError from "public/icons/toastError.svg";
+import closeIcon from "public/icons/closeIcon.svg";
 
 interface props {
   visible: boolean;

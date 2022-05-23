@@ -5,8 +5,8 @@ import {useGetData} from "../../store/Data";
 
 import {Wrapper, WrapperSkeleton} from "./Product.styles";
 
-import Toast, {ToastError} from "@components/Toast";
-import RedeemBtn from "@components/RedeemBtn";
+import Toast, {ToastError} from "components/Toast";
+import RedeemBtn from "components/RedeemBtn";
 import type {Product as ProductType} from "types";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;

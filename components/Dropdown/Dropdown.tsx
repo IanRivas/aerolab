@@ -5,9 +5,9 @@ import {useGetData} from "../../store/Data";
 
 import {DropdownWrapper} from "./Dropdown.styles";
 
-import Aeropay from "@components/Aeropay";
-import blueIcon from "@public/icons/aerolabLogoBlue.svg";
-import arrowDown from "@public/icons/arrowDown.svg";
+import Aeropay from "components/Aeropay";
+import blueIcon from "public/icons/aerolabLogoBlue.svg";
+import arrowDown from "public/icons/arrowDown.svg";
 
 function Dropdown() {
   const refPay = useRef<HTMLDivElement>(null);

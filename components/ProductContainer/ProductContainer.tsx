@@ -1,11 +1,10 @@
 import {useState, useEffect} from "react";
-import ProductNav from "components/ProductNav";
 
 import {Wrapper, Button, H2, BottomPager, SortFilterContainer} from "./ProductContainer.styles";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
-import Filter from "@components/Filter";
-import Pager from "@components/Pager";
+import Filter from "components/Filter";
+import Pager from "components/Pager";
 import Product, {CardSkeleton} from "components/Product";
 import type {Product as ProductType} from "types";
 
