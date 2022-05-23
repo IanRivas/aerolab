@@ -57,6 +57,8 @@ export async function getServerSideProps() {
     productsRes.json(),
   ]);
 
+  console.log(products, user);
+
   return {
     props: {
       user,
