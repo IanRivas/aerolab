@@ -20,10 +20,11 @@ const Home = ({user, products}: InferGetServerSidePropsType<typeof getServerSide
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <link href="/aerolab.svg" rel="icon" sizes="any" type="image/svg+xml" />
         <title>Aerolab&apos;s</title>
-        <meta content="A Challenge for Aerolab to redeem products" name="description" />
-        <meta content="Aerolab Challenge" itemProp="name" />
-        <meta content="A Challenge for Aerolab to redeem products" itemProp="description" />
-        <meta content="/images/metadata.png" itemProp="image" />
+        <meta content="Aerolab Challenge" property="og:title" />
+        <meta content="A Challenge for Aerolab to redeem products" property="og:description" />
+        <meta content="/metadata.png" property="og:image" />
+        <meta content="1200" property="og:image:width" />
+        <meta content="630" property="og:image:height" />
       </Head>
 
       <Data user={user}>
@@ -56,8 +57,6 @@ export async function getServerSideProps() {
     userRes.json(),
     productsRes.json(),
   ]);
-
-  console.log(products, user);
 
   return {
     props: {
