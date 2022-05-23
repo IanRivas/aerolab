@@ -29,7 +29,7 @@ const Home = ({user, products}: InferGetServerSidePropsType<typeof getServerSide
       <Data user={user}>
         <Header refProducts={refProducts} />
         <main ref={refProducts}>
-          <ProductContainer products={products} />
+          <ProductContainer products={products ? products : []} />
         </main>
         <Footer />
       </Data>
