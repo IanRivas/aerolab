@@ -52,7 +52,9 @@ export default function Aeropay({refPay, visible}: props) {
           </div>
           <div>
             <h4>{user && user.name}</h4>
-            <span>{user && user.createDate.substring(5, 10).replace("-", "/")}</span>
+            <span>
+              {user && user.createDate && user.createDate.substring(5, 10).replace("-", "/")}
+            </span>
           </div>
           <div />
         </div>
