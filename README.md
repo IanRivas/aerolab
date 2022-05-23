@@ -19,4 +19,6 @@ https://github.com/Aerolab/frontend-developer-coding-challenge
 ### How to Start this project
 
 - npm install
+- add your token in a file .env 
+    - NEXT_PUBLIC_TOKEN="here put your token for aerolab"
 - npm run dev
