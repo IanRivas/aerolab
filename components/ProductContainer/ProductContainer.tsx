@@ -16,11 +16,11 @@ type props = {
 };
 
 export default function ProductContainer({products}: props) {
-  const recent = [...products];
-  const lowestPrice = [...products].sort((a, z) => a.cost - z.cost);
-  const highestPrice = [...products].sort((a, z) => z.cost - a.cost);
+  const recent = products && [...products];
+  const lowestPrice = products && [...products].sort((a, z) => a.cost - z.cost);
+  const highestPrice = products && [...products].sort((a, z) => z.cost - a.cost);
 
-  const [productsState, setProductState] = useState<ProductType[]>([...products]);
+  const [productsState, setProductState] = useState<ProductType[]>(products && [...products]);
   const [sort, setSort] = useState<sorts>("recent");
   const [filter, setFilter] = useState<filters>("All Products");
 
