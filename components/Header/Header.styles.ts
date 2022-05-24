@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.header`
   margin-top: 128px;
+  position: relative;
   & .title {
     width: min(90%, 1464px);
     display: flex;
@@ -61,6 +62,7 @@ export const Wrapper = styled.div`
     }
     & > :last-child {
       display: none;
+      position: relative;
     }
   }
   & .hero {

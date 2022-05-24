@@ -5,12 +5,12 @@ export const Wrapper = styled.nav`
   height: 128px;
   position: fixed;
   display: flex;
-  display: flex;
   align-items: center;
   padding: 10px 25px;
   background-color: #ffffff;
   top: 0;
   left: 0;
+  right: 0;
   z-index: 3;
   & > div {
     width: 100%;

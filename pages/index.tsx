@@ -1,13 +1,20 @@
 import {useRef} from "react";
 import {InferGetServerSidePropsType} from "next";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 
 import Data from "../store/Data";
 import type {User, Product} from "../types";
 
-import Header from "@components/Header";
 import ProductContainer from "@components/ProductContainer";
 import Footer from "@components/Footer";
+
+const Header = dynamic(
+  () => {
+    return import("../components/Header");
+  },
+  {ssr: false},
+);
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 

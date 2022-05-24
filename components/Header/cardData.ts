@@ -1,9 +1,9 @@
-import img1 from "@public/images/saly1.png";
-import img1Desktop from "@public/images/saly1-desktop.png";
-import img2 from "@public/images/saly10.png";
-import img2Desktop from "@public/images/saly10-desktop.png";
-import img3 from "@public/images/saly31.png";
-import img3Desktop from "@public/images/saly31-desktop.png";
+import img1 from "public/images/saly1.png";
+import img1Desktop from "public/images/saly1-desktop.png";
+import img2 from "public/images/saly10.png";
+import img2Desktop from "public/images/saly10-desktop.png";
+import img3 from "public/images/saly31.png";
+import img3Desktop from "public/images/saly31-desktop.png";
 
 const data = [
   {

@@ -35,7 +35,7 @@ export default function Header({refProducts}: {refProducts: any}) {
         <div>
           <div />
           <div>
-            <Image alt="hero image" layout="fill" src={heroDesktop} />
+            <Image priority alt="hero image" layout="fill" src={heroDesktop} />
           </div>
         </div>
       </div>

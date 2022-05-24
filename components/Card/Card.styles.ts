@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 335px;
-  height: 395px;
+  min-height: 395px;
   border: 1px solid ${({theme}) => theme.neutral300};
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);
   border-radius: 32px;

@@ -17,12 +17,11 @@ export default function Card({img, text, title}: props) {
   return (
     <Wrapper>
       <div className="cardImage">
-        <Image
-          alt="card image"
-          height={width > 1364 ? 498 : 230}
-          src={img}
-          width={width > 1364 ? 508 : 311}
-        />
+        {width > 1364 ? (
+          <Image alt="card image" height={498} src={img} width={508} />
+        ) : (
+          <Image alt="card image" height={230} src={img} width={311} />
+        )}
       </div>
       <div className="cardText">
         <div className="cardTitle">
