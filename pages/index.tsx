@@ -30,8 +30,13 @@ const Home = ({user, products}: InferGetServerSidePropsType<typeof getServerSide
         <meta content="Aerolab Challenge" property="og:title" />
         <meta content="A Challenge for Aerolab to redeem products" property="og:description" />
         <meta content="/metadata.png" property="og:image" />
+        <meta content="image/png" property="og:image:type" />
         <meta content="1200" property="og:image:width" />
         <meta content="630" property="og:image:height" />
+        <meta content="website" property="og:type" />
+        <meta content="https://aerolab-ianrivas.vercel.app/" property="og:url" />
+        <meta content="#55bbee" name="theme-color" />
+        <meta content="summary_large_image" name="twitter:card" />
       </Head>
 
       <Data user={user}>
