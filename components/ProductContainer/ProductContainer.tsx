@@ -97,7 +97,7 @@ export default function ProductContainer({products}: props) {
       <BottomPager>
         <Pager finalPage={finalPage} page={page} setPage={setPage} />
         <div>
-          <span>{items} of 32</span> products
+          <span>{(page + 1) * items <= 32 ? (page + 1) * items : 32} of 32</span> products
         </div>
       </BottomPager>
     </>

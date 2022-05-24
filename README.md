@@ -2,7 +2,7 @@
 
 ![page Screen](./public/images/pageAerolab.jpg)
 
-## Aerolab Challenge Github Repository with all the details
+## In this Github Repository you can get all the details of the challenge.
 
 https://github.com/Aerolab/frontend-developer-coding-challenge
 
@@ -11,7 +11,7 @@ https://github.com/Aerolab/frontend-developer-coding-challenge
 ### I use the next technologies:
 - Nextjs (Server Side Rendering)
 - Typescript
-- Styled Components
+- Styled Components (Mobile First)
 - Jest + React Testing Library
 - Vercel for Deploy
 
